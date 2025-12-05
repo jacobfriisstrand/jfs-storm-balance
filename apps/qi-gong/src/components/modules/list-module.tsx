@@ -28,11 +28,11 @@ function generateListModuleData(props: ListModuleProps): WithContext<ItemList> {
       }
     : undefined;
 
-  const listItems: ListItem[] | undefined = items?.filter(item => item?.title && item?.description).map((item, index) => ({
+  const listItems: ListItem[] | undefined = items?.filter(item => item?.title || item?.description).map((item, index) => ({
     "@type": "ListItem",
     "position": index + 1,
-    "name": item.title!,
-    "description": item.description!,
+    ...(item.title ? { name: item.title } : {}),
+    ...(item.description ? { description: item.description } : {}),
   })) as ListItem[] | undefined;
 
   return {
@@ -81,7 +81,7 @@ export function ListModule({
           <GridItem className="tablet:col-span-7 tablet:col-start-6 flex items-center max-tablet:justify-center">
             <ul className="flex flex-col gap-28 tablet:gap-44">
               {items?.map(item => (
-                item?.title && item?.description
+                (item?.title || item?.description)
                   ? (
                       <ListModuleItem key={item._key} title={item.title} description={item.description} />
                     )
@@ -95,14 +95,17 @@ export function ListModule({
   );
 }
 
-function ListModuleItem({ title, description }: { title: string; description: string }) {
+function ListModuleItem({ title, description }: { title?: string; description?: string }) {
   return (
     <li className="flex flex-col text-center gap-8 tablet:gap-16 tablet:text-left">
-      <div className="flex flex-col items-center text-balance gap-8 tablet:flex-row">
-        <YinYangIcon className="size-20 tablet:size-40" />
-        <Heading size="h3" as="h3" colorScheme="dark">{title}</Heading>
-      </div>
-      <Paragraph className="text-balance">{description}</Paragraph>
+      {title && (
+        <div className="flex flex-col items-center text-balance gap-8 tablet:flex-row">
+          <YinYangIcon className="size-20 tablet:size-40" />
+          <Heading size="h3" as="h3" colorScheme="dark">{title}</Heading>
+        </div>
+      )}
+      {!title && description && <YinYangIcon className="size-20 tablet:size-40 mx-auto tablet:mx-0" />}
+      {description && <Paragraph className="text-balance">{description}</Paragraph>}
     </li>
   );
 }
