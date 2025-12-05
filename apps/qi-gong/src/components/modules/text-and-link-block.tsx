@@ -76,11 +76,11 @@ export function TextAndLinkBlock({
           <GridItem className="tablet:col-span-5">
             {title && <Heading size="h2" as="h2" colorScheme="dark">{title}</Heading>}
           </GridItem>
-          <GridItem className="tablet:col-span-5 tablet:col-start-8 grid">
+          <GridItem className="tablet:col-span-5 tablet:col-start-7 grid">
             {description && <PortableText value={description} components={components} />}
           </GridItem>
           {firstLink?.label && (
-            <GridItem className="tablet:col-span-5 tablet:col-start-8">
+            <GridItem className="tablet:col-span-5 tablet:col-start-7">
               <NextLink className={cn(headingVariants({ size: "h3", colorScheme: "dark" }), "font-sans flex items-center gap-8 w-fit focus-visible:focus-outline group")} href={href}>
                 {firstLink.label}
                 {" "}
