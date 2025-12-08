@@ -13,7 +13,7 @@ export const quoteModuleType = defineType({
     defineField({
       name: "quote",
       title: "Citat",
-      type: "text",
+      type: "richText",
     }),
     defineField({
       name: "author",

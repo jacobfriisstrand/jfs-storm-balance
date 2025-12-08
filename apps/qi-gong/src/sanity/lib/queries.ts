@@ -3,6 +3,8 @@ import { defineQuery } from "next-sanity";
 const IMAGE_QUERY = `{
   ...,
   alt,
+  crop,
+  hotspot,
   asset-> {
     url
   }
