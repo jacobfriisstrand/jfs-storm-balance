@@ -71,7 +71,7 @@ export function ImageGrid({
               {images?.map(image => (
                 image.asset && image.alt && (
                   <li key={image._key}>
-                    <Image className="aspect-square tablet:aspect-3/4" image={{ asset: image.asset, alt: image.alt }} />
+                    <Image className="aspect-square tablet:aspect-3/4" image={image} />
                   </li>
                 )
               ))}

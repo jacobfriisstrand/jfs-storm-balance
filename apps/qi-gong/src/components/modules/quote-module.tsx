@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { Grid, GridItem } from "@/components/ui/grid";
 import { Heading, headingVariants, Paragraph } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
+import { PortableText } from "next-sanity";
 
 function generateQuoteModuleData(props: QuoteModuleProps): WithContext<Quotation> {
   const { _key, title, quote, author } = props;
@@ -17,12 +18,22 @@ function generateQuoteModuleData(props: QuoteModuleProps): WithContext<Quotation
       }
     : undefined;
 
+  // Extract text from portable text blocks for JSONLD
+  const quoteText = quote && Array.isArray(quote)
+    ? (quote as any[])
+        .filter((block: any) => block?._type === "block")
+        .flatMap((block: any) => block.children || [])
+        .filter((child: any) => child?._type === "span" && typeof child.text === "string")
+        .map((child: any) => child.text)
+        .join(" ")
+    : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "Quotation",
     "@id": `#quote-module-${_key ?? "primary"}`,
     ...(title ? { name: title } : {}),
-    ...(quote ? { text: quote } : {}),
+    ...(quoteText ? { text: quoteText } : {}),
     ...(authorObject ? { author: authorObject } : {}),
   };
 }
@@ -52,7 +63,16 @@ export function QuoteModule({
           <GridItem className="flex flex-col gap-20 tablet:col-span-6">
             <QuoteSymbol />
             <blockquote>
-              {quote && <Paragraph as="span" className={cn(headingVariants({ size: "h4", colorScheme: "dark" }), "italic font-serif leading-32 tablet:leading-48")}>{quote}</Paragraph>}
+              {quote && Array.isArray(quote) && (
+                <span
+                  className={cn(
+                    headingVariants({ size: "h4", colorScheme: "dark" }),
+                    "italic font-serif leading-32 tablet:leading-48",
+                  )}
+                >
+                  <PortableText value={quote as any} components={{}} />
+                </span>
+              )}
             </blockquote>
             <QuoteSymbol className="self-end" />
           </GridItem>

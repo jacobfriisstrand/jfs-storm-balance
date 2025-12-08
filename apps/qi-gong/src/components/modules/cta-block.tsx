@@ -93,7 +93,7 @@ export function CtaBlock({
           <GridItem className={cn("tablet:row-span-3 relative", imagePosition === "left" ? "tablet:col-start-1 tablet:col-span-7" : "tablet:col-start-6")}>
             {image?.asset?.url && image.alt && (
               <>
-                <Image className="aspect-3/4 tablet:aspect-video size-full" image={{ asset: { url: image.asset.url }, alt: image.alt }} />
+                <Image className="aspect-3/4 tablet:aspect-video size-full" image={image} />
                 <ImageOverlay orientation={imagePosition === "left" ? "fromLeft" : "fromRight"} colorScheme="light" />
               </>
             )}

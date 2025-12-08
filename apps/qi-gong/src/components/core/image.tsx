@@ -1,17 +1,32 @@
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import type { ImageProps as NextImageProps } from "next/image";
 
 import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import NextImage from "next/image";
 
+type ImageWithAsset = {
+  asset?: {
+    url?: string | null;
+    _ref?: string;
+  } | null;
+  alt?: string | null;
+  crop?: {
+    top?: number;
+    left?: number;
+    bottom?: number;
+    right?: number;
+  } | null;
+  hotspot?: {
+    x?: number;
+    y?: number;
+    width?: number;
+    height?: number;
+  } | null;
+};
+
 type Props = Omit<NextImageProps, "src" | "alt"> & {
-  image: {
-    asset?: {
-      url?: string;
-      _ref?: string;
-    };
-    alt: string;
-  };
+  image: ImageWithAsset;
 };
 
 function Image({
@@ -23,7 +38,16 @@ function Image({
   if ((!image?.asset?.url && !image?.asset?._ref) || !image.alt)
     return null;
 
-  const imageUrl = urlFor(image)
+  // urlFor automatically applies crop and hotspot when present in the image object
+  // Filter out null values to match SanityImageSource type
+  const imageForUrl: SanityImageSource = {
+    ...image,
+    asset: image.asset || undefined,
+    crop: image.crop || undefined,
+    hotspot: image.hotspot || undefined,
+  };
+
+  const imageUrl = urlFor(imageForUrl)
     .auto("format")
     .url();
 
