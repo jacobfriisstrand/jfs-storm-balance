@@ -73,7 +73,7 @@ export function ListModule({
           <GridItem className="tablet:col-span-5 row-start-3 tablet:row-start-2 relative my-auto">
             {image?.asset?.url && image.alt && (
               <>
-                <Image className="w-auto h-auto aspect-square" image={{ asset: { url: image.asset.url }, alt: image.alt }} />
+                <Image className="w-auto h-auto aspect-square" image={image} />
                 <ImageOverlay orientation="fromLeft" className="hidden tablet:block" colorScheme="light" />
               </>
             )}

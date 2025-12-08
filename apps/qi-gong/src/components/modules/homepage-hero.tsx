@@ -86,10 +86,7 @@ export function HomepageHero({
           <Image
             loading="eager"
             className="aspect-3/4 tablet:aspect-video max-h-[80svh]"
-            image={{
-              asset: { url: image.asset.url },
-              alt: image.alt,
-            }}
+            image={image}
           />
         )}
         <ImageOverlay orientation="fromBottom" colorScheme="dark" />

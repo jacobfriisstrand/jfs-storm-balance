@@ -65,12 +65,7 @@ export function TextAndImage({ _key, title, image, orientation, ...props }: Text
               ? (
                   <Image
                     className="aspect-3/4"
-                    image={{
-                      asset: {
-                        url: image.asset.url,
-                      },
-                      alt: image.alt,
-                    }}
+                    image={image}
                   />
                 )
               : null}

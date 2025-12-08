@@ -49,10 +49,7 @@ export function GenericHero({
           <Image
             loading="eager"
             className="aspect-3/4 tablet:aspect-video max-h-[70svh]"
-            image={{
-              asset: { url: image.asset.url },
-              alt: image.alt,
-            }}
+            image={image}
           />
         )}
         <ImageOverlay orientation="fromBottom" colorScheme="light" />
