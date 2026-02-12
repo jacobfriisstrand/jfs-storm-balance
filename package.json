@@ -23,7 +23,7 @@
     "create:module:psykoterapi": "npm run create:module --workspace=apps/psykoterapi"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^4.11.0",
+    "@antfu/eslint-config": "^6.2.0",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@sanity/image-url": "^1.1.0",
