@@ -1,17 +1,3 @@
-@import "tailwindcss";
-@import "./breakpoints.css";
-@import "./spacing.css";
-@import "./typography.css";
+@import "../../../../../packages/shared/styles/globals.css";
 @import "./colors.css";
-@import "./animations.css";
-@import "./radii.css";
-@import "./utilities.css";
-@import "tw-animate-css";
-
-@plugin "@tailwindcss/typography";
-
-@theme {
-  --navigation-height-mobile: 66px;
-
-  --navigation-height-desktop: 88px;
-}
+@import "./fonts.css";

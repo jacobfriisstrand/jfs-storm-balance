@@ -1,1 +1,0 @@
-export const AVAILABLE_MODULES = ["textAndImage", "homepageHero", "genericHero", "textAndLinkBlock", "listModule", "featureList", "quoteModule", "ctaBlock", "contactModule", "richTextModule", "gridModule", "imageGrid", "priceListModule"];

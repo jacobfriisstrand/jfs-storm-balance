@@ -1,19 +1,18 @@
 "use client";
 
 /**
- * This configuration is used to for the Sanity Studio that's mounted on the `/app/admin/[[...tool]]/page.tsx` route.
+ * This configuration is used to for the Sanity Studio that's mounted on the `/app/admin/[[...tool]]/page.tsx` route
  */
 
+// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works.
+import { apiVersion, projectId, siteName } from "@/sanity/env";
 import { resolve } from "@/sanity/presentation/resolve";
+import { schema } from "@/sanity/schema-types";
+import { structure } from "@/sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { defineConfig, isDev } from "sanity";
 import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
-
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works.
-import { apiVersion, projectId, siteName } from "./src/sanity/env";
-import { schema } from "./src/sanity/schema-types";
-import { structure } from "./src/sanity/structure";
 
 // Shared configuration for newDocumentOptions
 const filteredDocumentTypes = [
@@ -34,7 +33,7 @@ function getTitle() {
     return "Development";
   const siteNameMap: Record<string, string> = {
     "qi-gong": "Storm Living Qi Gong",
-    "psykoterapi": "Psykoterapi",
+    "psykoterapi": "Storm Living Psykoterapi",
   };
   return siteNameMap[siteName] || siteName;
 }

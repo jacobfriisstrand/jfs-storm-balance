@@ -1,5 +1,0 @@
-@utility focus-outline {
-  outline: 2px solid var(--color-brand);
-  outline-offset: 2px;
-  transition-duration: 0ms;
-}
