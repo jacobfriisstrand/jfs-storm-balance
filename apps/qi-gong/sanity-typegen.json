@@ -1,5 +1,8 @@
 {
-  "path": "./src/**/*.{ts,tsx,js,jsx}",
-  "schema": "./src/sanity/extract.json",
-  "generates": "./src/sanity/types.ts"
+  "path": [
+    "./src/**/*.{ts,tsx,js,jsx}",
+    "../../packages/shared/**/*.{ts,tsx,js,jsx}"
+  ],
+  "schema": "../../packages/shared/sanity/extract.json",
+  "generates": "../../packages/shared/sanity/types.ts"
 }

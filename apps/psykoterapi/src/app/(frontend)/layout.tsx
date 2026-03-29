@@ -1,7 +1,7 @@
 import { DisableDraftMode } from "@/components/core/disable-draft-mode";
+import { ScrollToTop } from "@/components/core/scroll-to-top";
 import Footer from "@/components/modules/footer";
 import Navigation from "@/components/modules/navigation";
-import { HamburgerMenuProvider } from "@/contexts/hamburger-menu-context";
 import { TouchProvider } from "@/contexts/touch-context";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { CONTACT_BUTTONS_QUERY, FOOTER_INFO_QUERY, FOOTER_QUERY, LOGO_QUERY, NAVIGATION_QUERY } from "@/sanity/lib/queries";
@@ -27,18 +27,17 @@ export default async function RootLayout({
 
   return (
     <TouchProvider>
-      <HamburgerMenuProvider>
-        <Navigation navigationData={navigationData} logoData={logoData} contactButtonsData={contactButtonsData} />
-        {children}
-        <Footer footerData={footerData} footerInfoData={footerInfoData} />
-        <SanityLive />
-        {(await draftMode()).isEnabled && (
-          <>
-            <DisableDraftMode />
-            <VisualEditing />
-          </>
-        )}
-      </HamburgerMenuProvider>
+      <ScrollToTop />
+      <Navigation navigationData={navigationData} logoData={logoData} contactButtonsData={contactButtonsData} />
+      {children}
+      <Footer footerData={footerData} footerInfoData={footerInfoData} />
+      <SanityLive />
+      {(await draftMode()).isEnabled && (
+        <>
+          <DisableDraftMode />
+          <VisualEditing />
+        </>
+      )}
     </TouchProvider>
   );
 }

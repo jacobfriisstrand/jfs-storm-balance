@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "target": "ES2017",
     "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -13,6 +14,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": [],
+  "include": ["apps/**/*.ts", "apps/**/*.tsx", "packages/**/*.ts", "packages/**/*.tsx"],
   "exclude": ["node_modules", "apps/*/node_modules", "apps/*/.next"]
 }
