@@ -1,9 +1,9 @@
 @theme inline {
   --color-*: initial;
 
-  --color-dark: #000000;
+  --color-dark: #121212;
   --color-light: #ffffff;
-  --color-brand: #515750;
+  --color-brand: #bc6c25;
 
   --color-background: var(--color-light);
 }

@@ -1,0 +1,6 @@
+@theme {
+  --font-*: initial;
+
+  --font-sans: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+  --font-serif: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
+}

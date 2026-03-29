@@ -14,7 +14,7 @@ export default antfu(
       quotes: "double",
     },
     ignores: [
-      "apps/*/src/sanity/types.ts",
+      "packages/shared/sanity/types.ts",
       "dist/**",
       ".next/**",
       "**/*.md",
