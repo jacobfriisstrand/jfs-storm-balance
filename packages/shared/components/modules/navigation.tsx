@@ -150,7 +150,7 @@ export default function Navigation({ navigationData, logoData, contactButtonsDat
       style={{ willChange: "transform" }}
       className="fixed top-0 left-0 right-0 z-60 pointer-events-auto"
     >
-      <Container size="fluid" className="bg-dark text-light max-tablet:h-(--navigation-height-mobile) tablet:h-(--navigation-height-desktop)">
+      <Container size="fluid" className="bg-dark tablet:flex tablet:items-center text-light max-tablet:h-(--navigation-height-mobile) tablet:h-(--navigation-height-desktop)">
         <Container className="max-tablet:contents">
           <Grid className="max-tablet:contents">
             <GridItem className="max-tablet:contents tablet:col-span-full">

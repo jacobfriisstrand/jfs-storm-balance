@@ -32,8 +32,8 @@ function getTitle() {
   if (isDev)
     return "Development";
   const siteNameMap: Record<string, string> = {
-    "qi-gong": "Storm Living Qi Gong",
-    "psykoterapi": "Storm Living Psykoterapi",
+    "qi-gong": "Storm Balance Qi Gong",
+    "psykoterapi": "Storm Balance Psykoterapi",
   };
   return siteNameMap[siteName] || siteName;
 }
