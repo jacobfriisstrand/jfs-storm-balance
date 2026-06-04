@@ -59,37 +59,43 @@ export const globalSettingsType = defineType({
       ],
     }),
     defineField({
-      name: "address",
-      type: "object",
-      title: "Adresse",
-      description: "Dette vises i footeren.",
-      validation: Rule => Rule.required(),
-      fields: [
-        defineField({
-          name: "streetName",
-          type: "string",
-          title: "Vejnavn",
-        }),
-        defineField({
-          name: "streetNumber",
-          type: "string",
-          title: "Husnummer",
-        }),
-        defineField({
-          name: "floor",
-          type: "string",
-          title: "Etage",
-        }),
-        defineField({
-          name: "zipCode",
-          type: "string",
-          title: "Postnummer",
-        }),
-        defineField({
-          name: "city",
-          type: "string",
-          title: "By",
-        }),
+      name: "addresses",
+      type: "array",
+      title: "Adresser",
+      description: "Dette vises i footeren. Tilføj flere adresser efter behov.",
+      validation: Rule => Rule.required().min(1),
+      of: [
+        {
+          type: "object",
+          title: "Adresse",
+          fields: [
+            defineField({
+              name: "streetName",
+              type: "string",
+              title: "Vejnavn",
+            }),
+            defineField({
+              name: "streetNumber",
+              type: "string",
+              title: "Husnummer",
+            }),
+            defineField({
+              name: "floor",
+              type: "string",
+              title: "Etage",
+            }),
+            defineField({
+              name: "zipCode",
+              type: "string",
+              title: "Postnummer",
+            }),
+            defineField({
+              name: "city",
+              type: "string",
+              title: "By",
+            }),
+          ],
+        },
       ],
     }),
     defineField({

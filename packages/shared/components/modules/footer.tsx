@@ -39,26 +39,39 @@ export default function Footer({ footerData, footerInfoData }: { footerData: FOO
           <GridItem className="col-span-1 row-start-3 tablet:hidden">
             <div className="h-px w-full bg-dark"></div>
           </GridItem>
-          <GridItem className="space-y-24 tablet:space-y-0 tablet:flex tablet:justify-between">
-            <address className="not-italic">
-              <span>
-                {footerInfoData?.address?.streetName}
-                {" "}
-              </span>
-              <span>
-                {footerInfoData?.address?.streetNumber}
-                {", "}
-              </span>
-              <span>
-                {footerInfoData?.address?.floor}
-                {" "}
-              </span>
-              <span>
-                {footerInfoData?.address?.zipCode}
-                {" "}
-              </span>
-              <span>{footerInfoData?.address?.city}</span>
-            </address>
+          <GridItem className="space-y-24 tablet:space-y-0 tablet:flex tablet:justify-between tablet:items-end">
+            <div className="space-y-8">
+              {footerInfoData?.addresses?.map(addr => (
+                <address key={addr._key} className="not-italic">
+                  {addr?.streetName && (
+                    <span>
+                      {addr.streetName}
+                      {" "}
+                    </span>
+                  )}
+                  {addr?.streetNumber && (
+                    <span>
+                      {addr.streetNumber}
+                      {", "}
+                      foc
+                    </span>
+                  )}
+                  {addr?.floor && (
+                    <span>
+                      {addr.floor}
+                      {" "}
+                    </span>
+                  )}
+                  {addr?.zipCode && (
+                    <span>
+                      {addr.zipCode}
+                      {" "}
+                    </span>
+                  )}
+                  {addr?.city && <span>{addr.city}</span>}
+                </address>
+              ))}
+            </div>
             <div className="flex items-center gap-8">
               <Send strokeWidth={1.5} className="w-16 h-16 text-dark" />
               <p>{footerInfoData?.email}</p>

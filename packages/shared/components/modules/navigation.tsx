@@ -161,7 +161,7 @@ export default function Navigation({ navigationData, logoData, contactButtonsDat
                       {logoData?.logo?.asset?.url && (
                         <NextImage src={logoData.logo.asset.url} alt="Logo" width={50} height={50} priority />
                       )}
-                      {navigationData?.logoText && <Paragraph as="span" colorScheme="light" className="hidden desktop:block">{navigationData.logoText}</Paragraph>}
+                      {navigationData?.logoText && <Paragraph as="span" colorScheme="light" className="block">{navigationData.logoText}</Paragraph>}
                     </NextLink>
 
                     {/* Desktop nav — inline links */}
