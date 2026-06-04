@@ -5,8 +5,10 @@ const IMAGE_QUERY = `{
   alt,
   crop,
   hotspot,
-  asset-> {
-    url
+  "asset": {
+    "_ref": asset._ref,
+    "_type": "reference",
+    "url": asset->.url
   }
 }`;
 
@@ -225,12 +227,13 @@ export const FOOTER_QUERY = defineQuery(`*[_type == "footer"][0]{
 export const FOOTER_INFO_QUERY = defineQuery(`*[_type == "globalSettings"][0]{
   "phone": contactInfo.phone,
   "email": contactInfo.email,
-  "address": {
-    "streetName": address.streetName,
-    "streetNumber": address.streetNumber,
-    "floor": address.floor,
-    "zipCode": address.zipCode,
-    "city": address.city
+  "addresses": addresses[]{
+    _key,
+    streetName,
+    streetNumber,
+    floor,
+    zipCode,
+    city
   },
   "copyright": copyright,
   "vatNumber": {
