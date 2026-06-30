@@ -19,7 +19,7 @@ export const priceListModuleType = defineType({
       name: "columns",
       title: "Priserblokke",
       type: "array",
-      of: [{ type: "object", fields: [{ name: "title", title: "Pris overskrift", type: "string" }, { name: "description", title: "Pris beskrivelse", type: "text" }, { name: "priceItems", title: "Pris elementer", type: "array", of: [{ type: "object", fields: [{ name: "title", title: "Pris element overskrift", type: "string" }, { name: "description", title: "Pris / element beskrivelse", type: "string" }] }] }] }],
+      of: [{ type: "object", fields: [{ name: "title", title: "Pris overskrift", type: "string" }, { name: "description", title: "Pris beskrivelse", type: "richTextNoImages" }, { name: "priceItems", title: "Pris elementer", type: "array", of: [{ type: "object", fields: [{ name: "title", title: "Pris element overskrift", type: "string" }, { name: "description", title: "Pris / element beskrivelse", type: "string" }] }] }] }],
       validation: Rule => Rule.required().min(1).error("Minimum 1 pris er påkrævet"),
     }),
   ],
