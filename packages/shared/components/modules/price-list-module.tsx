@@ -4,10 +4,25 @@ import type { ItemList, ListItem, WithContext } from "schema-dts";
 import { JSONLD } from "@/components/core/json-ld";
 import { Container } from "@/components/ui/container";
 import { Grid, GridItem } from "@/components/ui/grid";
-import { Heading, headingVariants, Paragraph, paragraphVariants } from "@/components/ui/typography";
+import { Heading, headingVariants, paragraphVariants } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import { getPortableTextComponents } from "@/sanity/rich-text-components";
 import { PortableText } from "next-sanity";
+
+function portableTextToPlainText(blocks: unknown): string {
+  if (!Array.isArray(blocks))
+    return "";
+  return blocks
+    .map((block) => {
+      if (block._type !== "block" || !Array.isArray(block.children))
+        return "";
+      return block.children
+        .map((child: Record<string, unknown>) => (child._type === "span" ? child.text ?? "" : ""))
+        .join("");
+    })
+    .filter(Boolean)
+    .join(" ");
+}
 
 function generatePriceListModuleData(props: PriceListModuleProps): WithContext<ItemList> {
   const { _key, title, columns } = props;
@@ -18,7 +33,7 @@ function generatePriceListModuleData(props: PriceListModuleProps): WithContext<I
       .join("; ");
 
     const description = [
-      column.description,
+      portableTextToPlainText(column.description),
       priceItemsText,
     ].filter(Boolean).join(" - ") || undefined;
 
@@ -84,11 +99,12 @@ export function PriceListModule({
 
 function PriceListBlock({ block }: { block: PriceListBlockProps }) {
   return (
-    <li className="border aspect-square grid grid-rows-[1fr_auto] tablet:grid-rows-auto tablet:grid-cols-[70%_30%] border-dark rounded-base p-20 tablet:aspect-auto tablet:p-40 tablet:items-end">
+    <li className="border aspect-square grid grid-rows-[1fr_auto] tablet:grid-rows-auto tablet:grid-cols-[auto_auto_auto] border-dark rounded-base p-20 tablet:aspect-auto tablet:p-40 tablet:items-end gap-y-20 tablet:gap-x-40">
       <div className="space-y-8 tablet:space-y-20">
         <p className={headingVariants({ size: "h4", colorScheme: "dark" })}>{block.title}</p>
-        <Paragraph>{block.description}</Paragraph>
+        {block.description && <PortableText value={block.description} components={getPortableTextComponents({ allowImages: false, colorScheme: "dark" })} />}
       </div>
+      <div className="w-full h-px tablet:w-px tablet:h-full bg-dark" />
       <ul className="space-y-20">
         {block.priceItems?.map(priceItem => (
           <li className={cn("grid", paragraphVariants({ size: "default", colorScheme: "dark" }))} key={priceItem._key}>
