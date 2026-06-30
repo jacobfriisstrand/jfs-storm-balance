@@ -44,7 +44,32 @@ export type PriceListModule = {
   }>;
   columns?: Array<{
     title?: string;
-    description?: string;
+    description?: Array<{
+      children?: Array<
+        | {
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }
+        | ({
+            _key: string;
+          } & EmailReference)
+        | ({
+            _key: string;
+          } & PhoneReference)
+      >;
+      style?: "normal" | "h2" | "h3" | "h4" | "blockquote";
+      listItem?: "bullet";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
     priceItems?: Array<{
       title?: string;
       description?: string;
@@ -1370,7 +1395,32 @@ export type PAGE_QUERYResult =
             }>;
             columns?: Array<{
               title?: string;
-              description?: string;
+              description?: Array<{
+                children?: Array<
+                  | ({
+                      _key: string;
+                    } & EmailReference)
+                  | ({
+                      _key: string;
+                    } & PhoneReference)
+                  | {
+                      marks?: Array<string>;
+                      text?: string;
+                      _type: "span";
+                      _key: string;
+                    }
+                >;
+                style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+                listItem?: "bullet";
+                markDefs?: Array<{
+                  href?: string;
+                  _type: "link";
+                  _key: string;
+                }>;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }>;
               priceItems?: Array<{
                 title?: string;
                 description?: string;
@@ -2033,7 +2083,32 @@ export type PAGE_QUERYResult =
             }>;
             columns?: Array<{
               title?: string;
-              description?: string;
+              description?: Array<{
+                children?: Array<
+                  | ({
+                      _key: string;
+                    } & EmailReference)
+                  | ({
+                      _key: string;
+                    } & PhoneReference)
+                  | {
+                      marks?: Array<string>;
+                      text?: string;
+                      _type: "span";
+                      _key: string;
+                    }
+                >;
+                style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+                listItem?: "bullet";
+                markDefs?: Array<{
+                  href?: string;
+                  _type: "link";
+                  _key: string;
+                }>;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }>;
               priceItems?: Array<{
                 title?: string;
                 description?: string;
@@ -3267,7 +3342,32 @@ export type HOME_PAGE_QUERYResult =
             }>;
             columns?: Array<{
               title?: string;
-              description?: string;
+              description?: Array<{
+                children?: Array<
+                  | ({
+                      _key: string;
+                    } & EmailReference)
+                  | ({
+                      _key: string;
+                    } & PhoneReference)
+                  | {
+                      marks?: Array<string>;
+                      text?: string;
+                      _type: "span";
+                      _key: string;
+                    }
+                >;
+                style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+                listItem?: "bullet";
+                markDefs?: Array<{
+                  href?: string;
+                  _type: "link";
+                  _key: string;
+                }>;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }>;
               priceItems?: Array<{
                 title?: string;
                 description?: string;
@@ -3930,7 +4030,32 @@ export type HOME_PAGE_QUERYResult =
             }>;
             columns?: Array<{
               title?: string;
-              description?: string;
+              description?: Array<{
+                children?: Array<
+                  | ({
+                      _key: string;
+                    } & EmailReference)
+                  | ({
+                      _key: string;
+                    } & PhoneReference)
+                  | {
+                      marks?: Array<string>;
+                      text?: string;
+                      _type: "span";
+                      _key: string;
+                    }
+                >;
+                style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+                listItem?: "bullet";
+                markDefs?: Array<{
+                  href?: string;
+                  _type: "link";
+                  _key: string;
+                }>;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }>;
               priceItems?: Array<{
                 title?: string;
                 description?: string;
