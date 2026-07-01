@@ -377,16 +377,16 @@ export default async function RootLayout({
 
   return (
     <TouchProvider>
-        <Navigation navigationData={navigationData} logoData={logoData} contactButtonsData={contactButtonsData} />
-        {children}
-        <Footer footerData={footerData} footerInfoData={footerInfoData} />
-        <SanityLive />
-        {(await draftMode()).isEnabled && (
-          <>
-            <DisableDraftMode />
-            <VisualEditing />
-          </>
-        )}
+      <Navigation navigationData={navigationData} logoData={logoData} contactButtonsData={contactButtonsData} />
+      {children}
+      <Footer footerData={footerData} footerInfoData={footerInfoData} />
+      <SanityLive />
+      {(await draftMode()).isEnabled && (
+        <>
+          <DisableDraftMode />
+          <VisualEditing />
+        </>
+      )}
     </TouchProvider>
   );
 }

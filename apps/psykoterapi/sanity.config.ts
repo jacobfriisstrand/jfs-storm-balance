@@ -30,7 +30,7 @@ const filteredDocumentTypes = [
 
 function getTitle() {
   if (isDev)
-    return "Development";
+    return "Psykoterapi Development";
   const siteNameMap: Record<string, string> = {
     "qi-gong": "Storm Balance Qi Gong",
     "psykoterapi": "Storm Balance Psykoterapi",

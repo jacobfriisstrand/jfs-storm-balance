@@ -1,0 +1,53 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/components/*": [
+        "./src/components/*",
+        "../../packages/shared/components/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*",
+        "../../packages/shared/hooks/*"
+      ],
+      "@/contexts/*": [
+        "./src/contexts/*",
+        "../../packages/shared/contexts/*"
+      ],
+      "@/lib/*": [
+        "./src/lib/*",
+        "../../packages/shared/lib/*"
+      ],
+      "@/sanity/*": [
+        "./src/sanity/*",
+        "../../packages/shared/sanity/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@shared/*": [
+        "../../packages/shared/*"
+      ],
+      "@public/*": [
+        "./public/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "../../packages/shared/**/*.ts",
+    "../../packages/shared/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -21,7 +21,11 @@
     "typegen:psykoterapi": "npm run typegen --workspace=apps/psykoterapi",
     "create:module": "tsx scripts/create-module.ts",
     "create:pagetype": "tsx scripts/create-page-type.ts",
-    "create:app": "tsx scripts/create-app.ts"
+    "create:app": "tsx scripts/create-app.ts",
+    "dev:lederskab": "npm run dev --workspace=apps/lederskab",
+    "build:lederskab": "npm run build --workspace=apps/lederskab",
+    "start:lederskab": "npm run start --workspace=apps/lederskab",
+    "typegen:lederskab": "npm run typegen --workspace=apps/lederskab"
   },
   "dependencies": {
     "@antfu/eslint-config": "^4.11.0",
