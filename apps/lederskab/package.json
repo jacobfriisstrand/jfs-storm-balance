@@ -1,0 +1,15 @@
+{
+  "name": "lederskab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen",
+    "typegen": "sanity schema extract --workspace=development --path=../../packages/shared/sanity/extract.json && sanity typegen generate"
+  }
+}

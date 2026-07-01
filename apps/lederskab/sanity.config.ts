@@ -1,10 +1,5 @@
 "use client";
 
-/**
- * This configuration is used to for the Sanity Studio that's mounted on the `/app/admin/[[...tool]]/page.tsx` route
- */
-
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works.
 import { apiVersion, projectId, siteName } from "@/sanity/env";
 import { resolve } from "@/sanity/presentation/resolve";
 import { schema } from "@/sanity/schema-types";
@@ -14,26 +9,26 @@ import { defineConfig, isDev } from "sanity";
 import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 
-// Shared configuration for newDocumentOptions
 const filteredDocumentTypes = [
-  "globalSettings", // Singleton
-  "homePage", // Singleton
-  "navigation", // Singleton
-  "notFoundPage", // Singleton
-  "basePage", // Base type, not meant to be created directly
-  "seo", // Utility type
-  "imageField", // Utility type
-  "richText", // Utility type
-  "redirect", // Utility type
-  "navigationLink", // Utility type
+  "globalSettings",
+  "homePage",
+  "navigation",
+  "notFoundPage",
+  "basePage",
+  "seo",
+  "imageField",
+  "richText",
+  "redirect",
+  "navigationLink",
 ];
 
 function getTitle() {
   if (isDev)
-    return "Qi Gong Development";
+    return "Lederskab development";
   const siteNameMap: Record<string, string> = {
     "qi-gong": "Storm Balance Qi Gong",
     "psykoterapi": "Storm Balance Psykoterapi",
+    "lederskab": "Storm Balance Lederskab",
   };
   return siteNameMap[siteName] || siteName;
 }
