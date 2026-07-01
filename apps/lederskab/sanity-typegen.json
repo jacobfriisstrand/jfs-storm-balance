@@ -5,3 +5,4 @@
   ],
   "schema": "../../packages/shared/sanity/extract.json",
   "generates": "../../packages/shared/sanity/types.ts"
+}
